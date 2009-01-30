@@ -1,0 +1,29 @@
+<p>
+  <b>Title:</b>
+  <%=h @page.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @page.body %>
+</p>
+
+<p>
+  <b>Caption:</b>
+  <%=h @page.caption %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Home Base', pages_path %>
+
+<% previous_page = Page.find_by_order_num(@page.order_num-1)%>
+<% unless previous_page.nil? %>
+<%= link_to 'Back', page_url( previous_page ) %>
+<% end %>
+<% next_page = Page.find_by_order_num(@page.order_num+1)%>
+<% unless next_page.nil? %>
+<%= link_to 'Next', page_url( next_page ) %>
+<% end %>
+<% previous_page = Page.find_by_order_num(@page.order_num-1)%>
+
