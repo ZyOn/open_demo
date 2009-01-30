@@ -1,6 +1,7 @@
 <h1>Editing page</h1>
 
-<% form_for(@page) do |f| %>
+<% form_for(@page, :html => { :multipart => true }) do |f| %>
+  <%= f.file_field :image %>
   <%= f.error_messages %>
 
   <p>
@@ -14,6 +15,10 @@
   <p>
     <%= f.label :body %><br />
     <%= f.text_area :body %>
+  </p>
+  <p>
+  	<%= f.label :image_size %>
+  	<%= f.text_field :image_size %>
   </p>
   <p>
     <%= f.label :caption %><br />

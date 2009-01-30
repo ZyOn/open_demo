@@ -1,21 +1,20 @@
-<p>
-  <b>Title:</b>
+<h1>
   <%=h @page.title %>
-</p>
+</h1>
 
 <p>
-  <b>Body:</b>
   <%=h @page.body %>
 </p>
-
 <p>
-  <b>Caption:</b>
-  <%=h @page.caption %>
+  <%= image_tag @page.image.url, :size => @page.image_size%> <!-- paperclip -->
 </p>
+<h2>
+  <%=h @page.caption %>
+</h2>
 
-
+<h3>
 <%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Home Base', pages_path %>
+<%= link_to 'Home Base', pages_path %> |
 
 <% previous_page = Page.find_by_order_num(@page.order_num-1)%>
 <% unless previous_page.nil? %>
@@ -27,3 +26,4 @@
 <% end %>
 <% previous_page = Page.find_by_order_num(@page.order_num-1)%>
 
+</h3>
