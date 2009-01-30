@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :title
       t.text :body
       t.string :caption
-      t.integer :order_num , :default => -1
+      t.integer :order_num , :default => -5
 
       t.timestamps
     end
